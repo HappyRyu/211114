@@ -1,0 +1,122 @@
+<script> document.write(1+1/'내용') </script>
+그냥 내용을 적는 것과 유사하지만 내용 계산이 가 수식 또는 '내용' 동시에는 처리가 안됨
+<input type="button" value="표기" onclick="alert('내용')">
+'표기'라고 적힌 버튼을 누를 경우 '내용'이 팝업된다.
+<input type="text" onchange="alert('팝업되는 내용')">
+텍스트 바탕에 무언가 입력(엔터) '팝업되는 내용'이 팝업된다.
+<input type="text" onkeydown="alert('팝업내용')">
+텍스트 바탕에 어떤 키를 누를 경우 팝업내용이 팝업된다.
+
+F12->console창에 명령입력으로 실시간 처리? 테스트?가 가능하다.
+alert('문장' .length) 입력시 문장의 글자수(길이)가 출력된다.
+F12->elements +esc입력시 elements와 console창을 동시에 볼 수 있다.
+console창을 계산기 대용으로 이용할 수 있으며 문자는 "" '' 둘 다 이용 가능하다.
+
+'Hello world'.toUpperCase() 입력 시 대문자화
+'asdfasdf'.indexOF('a') a자리에 넣은 문자 또는 단어가 몇번째에 위치한지 표기(시작은 0)
+"1"+"1"=11  문자+문자=문자
+name= '내용'; "podkpqwkdq" "+name+" "awd" "+name+"
+문장 내부 내용 삽입 가능 / 내용만 바꾸면 문장 내부 삽입 내용도 변한다.
+
+<input type="button" value="night" onclick="
+document.querySelector('body').style.backgroundColor = 'black';
+document.querySelector('body').style.color = 'white';">
+night란 이름의 버튼  클릭시 body 태그의 배경=검정, 글자색=화이트
+Number=무한 , String=엄청 많은 문자, Boolean= true/false 단 둘
+document.write(1===2); ===,<,>,<=,>=등 부등호를 이용해 true/false 값을 받을 수 있다.
+
+두 개의 버튼에 조건문을 추가하여 하나의 버튼으로 만들 수 있다.
+<input type="button" value="night" onclick="
+document.querySelector('body').style.backgroundColor = 'black';
+document.querySelector('body').style.color = 'white';
+">
+<input type="button" value="day" onclick="
+document.querySelector('body').style.backgroundColor = 'white';
+document.querySelector('body').style.color = 'black';
+">
+-------------------------------------------------------------
+<input id="night_day" type="button" value="night" onclick="
+if(document.querySelector('#night_day').value=== 'night'){
+document.querySelector('body').style.backgroundColor = 'black';
+document.querySelector('body').style.color = 'white';
+document.querySelector('#night_day').value = 'day'; }
+
+else{
+  document.querySelector('body').style.backgroundColor = 'white';
+  document.querySelector('body').style.color = 'black';
+  document.querySelector('#night_day').value = 'night';}
+">
+
+
+
+
+내용 중 id값인 night_day로 지정된 것과 유사한 기능을 중복해서 만들거나
+이름 관리가 어려울 경우 Id값 대신 This를 사용해서 간략화 할 수 있다.
+<input id="night_day" type="button" value="night" onclick="
+if(document.querySelector('#night_day').value=== 'night'){
+document.querySelector('body').style.backgroundColor = 'black';
+document.querySelector('body').style.color = 'white';
+document.querySelector('#night_day').value = 'day'; }
+">
+----------------------------------------------
+<input type="button" value="night" onclick="
+if(this.value=== 'night'){
+document.querySelector('body').style.backgroundColor = 'black';
+document.querySelector('body').style.color = 'white';
+this.value = 'day' }">
+
+
+<script>  var coworkers = ["Ryu","Happy"]  </script>
+스크립트명령 coworkers에 Ryu와 Happy를 저장한다
+
+<script>  document.write(coworkers.length); </script>
+coworkers에 저장된 길이(갯수)를 불러온다 (Ryu,Happy = 2)
+
+<script>  coworkers.push('baby')  coworkers.push('hamster') </script>
+coworkers에 baby와 hamster를 추가한다(뒤에서부터)
+
+
+<script>
+  document.write('<li>1</li>');
+    var i = 0;
+    while (i<5) {
+      document.write('<li>2</li>');
+      document.write('<li>3</li>');
+      i = i + 1;  }
+      document.write('<li>4</li>');
+</script>
+li 1작성, i=0이라고 저장, 조건문(i<5) li2, li3 출력 i+1 조건반복, 조건만족후 li4 출력
+특정 조건 부여 후 만족 할 때 까지 반복
+
+
+<script>
+  var i =0;
+  while(i<coworkers.length){
+    document.write('<li><a href="http://blog.naver.com/'+coworkers[i]+'">'+coworkers[i]+'</a></li>')
+    i=i+1
+  }
+</script>
+저장된 coworkers에서 1~i번째까지의 내용물을 불러오기
++href는 ++를 이용해 각 회차에 해당하는 내용을 앞 링크 뒤에 덧붙혀 주소 만들어주기
+(블로그 주소 또는 특정 도메인에 사용하기 좋아 보인다.)
+
+document.querySelector('a')를 입력하는 경우  첫번째 a 태그를 추출
+
+document.querySelectorALL('a'); console.log(alist[숫자])
+숫자 자리에 숫자를 넣으면 해당하는 번째의 a태그를 찾아준다.
+
+var alist = document.querySelectorAll('a');
+var i = 0;
+while (i < alist.length){
+    console.log(alist[0]);
+    i = i + 1 ;
+}
+a태그를 모두 찾아 표기한다.
+
+
+var alist = document.querySelectorAll('a');
+var i = 0;
+while(i < alist.length){
+  alist[i].style.color = 'blue';
+  i = i+1
+a태그를 모두 찾아 alist에서 a태그의 갯수만큼(a태그 모두) 색을 바꿔준다.
