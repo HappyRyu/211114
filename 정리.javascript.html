@@ -120,3 +120,82 @@ while(i < alist.length){
   alist[i].style.color = 'blue';
   i = i+1
 a태그를 모두 찾아 alist에서 a태그의 갯수만큼(a태그 모두) 색을 바꿔준다.
+
+
+
+
+
+
+
+
+
+var target = document.querySelector('body')
+target.style 등  target(이름)을 var로 저장한 후 사용할 수 있다.
+
+<script>
+  function two(){
+    document.write('<li>2-1</li>')
+    document.write('<li>2-2</li>')
+  }
+  two();
+  two();
+</script>
+스크립트 내부에 펑션으로 명령어와 내용을 설정할 경우
+명령어만 작성해도 내용을 불러올 수 있어 자주 사용할 경우 function을 사용하는 것이 좋다.
+
+
+function sum(left, right){
+  document.write(left+right+'<br>') }
+펑션내부 명령어는 아래 다큐먼트와 대치므로 left, right가 아니어도 상관없으며
+남들이 알아볼 수 있게 직관적으로 정리하는 습관을 들이는 것이 중요할 것 같다.
+
+원하는대로 작동을 하지 않는 경우 F12(개발자도구) console에 들어가면 문제점을 알 수 있다.
+
+
+
+<script>
+  function sum2(left, right){
+    return left+right;
+  }
+  document.write(sum2(2,3)+'<br>')
+  document.write('<div style="color:red">'+sum2(2,3)+'</div>')
+  document.write('<div style="font-size:3rem;">'+sum2(2,3)+'</div>')
+</script>
+return을 사용해 함수값의 결과를 반환받을 수 있다.
+
+auto indent를 통해 줄 정리를 간편하게 할 수 있다.
+(atom 세팅 keybindings-> keymap file -> 단축키 지정)
+
+function을 리팩토링 하기 위해서는 this값을 제외하고 self로 바꾼 후
+사용할 떄 이름(this); 라는 방식으로 입력해야 this값이 제대로 작동한다.
+
+function setcolor(color){
+  var alist = document.querySelectorAll('a');
+  var i = 0;
+  while(i < alist.length){
+    alist[i].style.color = color;
+    i = i+1}                          }
+색 변경 코드를 지정하고 color로 넣어두면 색을 변경할 때 color만 이용해
+편하게 색을 지정할 수 있다.
+
+객체에 a:b로 지정을 할 경우 a가 key값이 되고 a를 입력할 경우 b가 나온다.
+이를 이용해 function(){for(var key in this) {document.write(key+':'+객채[key])}}
+를 입력할 경우  a:b의 대응이 소속된 모든 데이터가 다 나온다.
+
+객체를 js파일에 정리해둘 경우 스크립트만 배포하면 같은 내용들을 쉽게 수정할 수 있다.
+(css와 유사한 케이스)
+
+좋은 라이브러리 jQuery
+스크립트에 링크를 복사해주기만 하면
+반복문등을 간략화 가능하다
+$('a').css('color',color);로 색 입력을 대신 처리할 수 있다?
+
+태그조사는 document, 그래도 안나오면 dom까지 조사
+웹 브라우저 자체 제어는 window 객체 조사
+리로드 하지 않고 제어는 ajax
+현재상태 유지는 cookie
+인터넷이 끊어져도 동작하는 페이지는 offline web application
+화상통신 webRTC
+음성인식 speech
+3차원 그래픽 webGL
+가상현실 webVR
