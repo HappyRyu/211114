@@ -1,0 +1,112 @@
+Java Script  상위버전? Type Script
+             백엔드 호환? Node JS
+
+source창에서 브레이크를 걸 수 있음
+상위프로그램 React
+
+ecma->자바 공식 사이트
+Mozilla.org=>개발자가 많이 모이는 사이트
+
+var호이스팅=블럭무시
+let ->엄격한 var (현업에서는 var를 거의 사용하지 않음)
+const->변경불가(Constant)
+숫자+N= 빅인트로 53자리?초과시에 사용(쓸일은 거의 없음)
+
+Immutable Data Types : Premitive type,  frozen objects
+Mutable Date Types : All objects in JS (특정 설정 제외)
+'my'+' cat'= my cat   글자+글자=글자합
+'1'+2 = 12            글자+숫자=글자합
+`string literals: 1 + 2 = ${1+2}`  string literals: 1 + 2 = 3
+
+1+1=2 덧셈
+1-1=0 뺄셈
+1/1=1 나눗셈
+1*1=1 곱셈
+5%2=1 나머지
+2**3=8 거듭제곱
+
+++counter counter에 1을 더한 후 처리
+counter++ counter를 처리한 후 1을 더함
+--counter counter에 1을 뺀 후 처리
+counter-- counter를 처리한 후 1을 뺌
+++, --의 순서에 따라 반복 조건문 시작순서 처리하기가 용이하다
+
+and, or 연산자에 check를 넣을 경우 맨 뒤에 넣어 원하는 상황에서만 작동할 수 있게 한다.
+
+! = not연산자로 true는 false로 false는 true로 바꿔준다.
+
+== 같다 (같으면 true) != 같지 않다 (같으면 false)
+=== 타입까지 같다 (같으면 true) !== 타입까지 같은 상태가 아니다 (같으면 false)
+(strict equality인 === !==를 사용하는 버릇을 가지는 것이 좋다.)
+
+console.log(0 == false);          True
+console.log(0 === false);         False
+console.log('' == false);         True
+console.log('' === false);        False
+console.log(null == undefined);   True
+console.log(null === undefined);  False
+0,공백, null, undefined는 모두 false값으로 동잏하지만 같은 타입이 아니므로
+== 비교시에는 True가 나오지만 ===비교시에는 False가 나온다.
+
+const name = '내용';
+If (name = '내용') {
+  console.log('Welcome, 내용!')
+} else if (name === '변수') {
+  console.log('Hi 변수');
+} else {
+  console.log('unknown')
+}
+A 일치시 A`출력, 아니고 B라면 B`출력 그것도 아니면 C`출력
+
+console.log(name === 'A' ? 'a' : 'b')
+A이면 a 출력 아니면 b 출력 (간단할 때문 사용)
+
+
+const Browser = 'IE';
+swich (Browser) {
+  case 'IE':
+    console.log('go away!');
+    break;
+  case 'Chrome':
+    console.log('Welcome!');
+    break;
+  case 'Firefox':
+    console.log('Welcome!');
+    break;
+  default:
+    console.log('same all??');
+    break;
+
+  case 'Chrome':
+  case 'Firefox':
+    console.log('Welcome!');
+    break;
+
+}
+스위치는 해당하는 경우 원하는 동작 후 break로 빠져나온다.
+중복되는 경우에는 통합도 가능하다.
+
+while= 조건문
+do{} while= 실행 후 조건문
+
+
+for (i=3; i>0; i--) {
+  console.log(`for: ${1}`);
+}
+
+for (let i = 3; i>0; i=i - 1) {
+  console.log(`inline variable for : ${i}`);
+}
+For문을 통해 i 선언(let을 이용해 지역변수 선언하는 것도 좋음)후
+조건(i>0) true값일 경우 작동, 후 반복문(i-1, i--)
+
+
+for (let i =0; i<10; i++) {
+  for (let j = 0; j<10; j++) {
+    console.log(`i:${i}, j:${j}`)
+  }
+}
+조건 내 조건문으로 변수의 제곱만큼 커지기 때문에 되도록 쓰지 않는 편이 좋다.
+
+
+break는 즉시 종료하고 탈출, continue는 해당하는 것만 통과하고 반복문 그대로 진행
