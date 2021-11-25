@@ -110,3 +110,103 @@ for (let i =0; i<10; i++) {
 
 
 break는 즉시 종료하고 탈출, continue는 해당하는 것만 통과하고 반복문 그대로 진행
+
+
+
+
+
+
+Funcrion은 계산, 또는 작업을 처리하는 단위로 subprogram이라고도 불린다.
+function name(a1,a2,a3) {body... return;}
+function은 작업,계산등을 처리하기 때문에 이름은 직관적인 동사형태가 좋다.
+
+
+function showMessage(message, from = 'unknown'){
+  console.log(`${message} by ${from}`)
+}
+from = 'unknown'을 적지 않을 경우 from 값이 없기 때문에
+a , b 입력을 하지 않고 하나의 변수인 a만 입력시
+a by undefined로 출력이 되지만 위와 같이 from = 'unknown'을 from값에 지정시
+from값을 넣어주지 않을 경우 자동으로 unknown이 출력된다.
+
+function printAll(...args) {
+  for (let i=0; i< args.length; i++){
+    console.log(arg[i]);
+  }
+
+  for (const arg of args) {
+    console.log(arg);
+  }
+
+  args.forEach((arg) => console.log(arg));
+}
+뤼의 for문, for문, =>?  3가지는 모두 동일한 결과(args의 내용 모두 출력)를 가진다.
+
+JavaScript에서는 scope라는 말이 있는데
+하위차원(실내)에서는 상위차원(실외)를 볼 수 있지만 상위차원에서는 하위차원을 볼 수
+없다는 의미인데 선팅을 했다고 생각하면 이해하기 쉽다.
+지역변수(하위차원에 선언된 변수가 상위차원에서는 작동하지 않는 것)도 scope와 관련있다.
+- var는 scope를 무시하기 때문에 소규모가 아닌 프로젝트에서는 충돌이 나올 가능성이 크다.
+- Function도 호이스팅이 되기 때문에? (선언을 최 상단으로 올려줌) 선언 전 작성한 문장도
+정상 작동한다.
+
+function sum(a,b) {
+  return a+b;
+}
+const result = sum(1,2);
+console.log(`sum:${sum(1,2)}`);
+ sum(a+b)에 대해서 정의한 후 return으로 결과를 받고
+ 그 받은 값을 sum: 뒤에 출력(console.log)해야만 값을 눈으로 볼 수 있다.
+정의(return으로 결과받기), 변수입력, 출력 중 하나라도 부족하면 제대로 작동하지 않는다.
+
+early return이란 조건확인과 작동을 함께 두면 가독성이 떨어지기 때문에
+return으로 조건에 맞지 않는 변수일 경우 return으로 넘기고 조건에 맞는 경우에만
+따로 떨어져 있는 작업을 시행하는 것이다.
+아래에서 WORK SOMETHING WITH LONG LINE이란 엄청 길고 식별하기 곤란한 작업이라고 가정했다.
+Function something(a) {
+  if (a.point >10) {
+    WORK SOMETHING WITH LONG LINE
+  }
+}
+Function something(a) {
+  if (a.point <=10) {
+    return;
+  }
+  WORK SOMETHING WITH LONG LINE
+}
+
+const print = function() {
+  console.log ('print');
+} ;
+print();
+function에서 바로 print 출력을 print();에 보내 print출력
+
+???의 이름을 print로 추가지정하는 경우에도 ???();는 print();와 동일 작동한다
+
+function quiz(answer, printYes, printNo){
+  if (answer === '정답'){
+    printYes();
+  } else {
+    printNo();
+  }
+}
+const printYes = function() {
+  console.log('Yes!');
+};
+const printNo = function() {
+  console.log('No!')''
+}
+quiz('정답','printYes','PrintNo');
+위의 경우 정답을 입력하면 yes가 출력, 틀리면 no가 출력되지만
+왜 저렇게 만드는 법을 가르치는지는 이해할 수 없다..
+yes!와 No!를 출력할 경우 함수값만 넣으려는 걸까?
+그렇다고 해도 변수를 3개나 넣을 필요 없이 정답입력만 넣고
+if와 else뒤에 펑션두개를 유지해도 작동은 그대로 할 것 같다.
+
+@ arrow function는 function을 간략화해주는 착한 도구
+const simplePrint = () => console.log('simplePrint!')
+const add = (a,b) => a+b;
+
+(function hello() {
+  console.log('IIFE');
+})();  함수를 ()로 묶은 후 바로 뒤에 ();를 추가할 경우 선언과 동시에 호출이 된다.(IIFE)
